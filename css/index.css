@@ -1,0 +1,38 @@
+html {
+  overflow-y: auto;
+}
+
+#count-input {
+  width: 50px;
+}
+
+.icon img {
+  width: 15px;
+}
+
+.lorem-ipsum-display {
+  row-gap: 1rem;
+}
+
+.message {
+  display: none;
+  position: fixed;
+  width: fit-content;
+  top: 10px;
+  right: 10px;
+  transition: display 500ms linear;
+}
+
+.slide-in {
+  display: inline-block;
+  animation: fade-out 500ms linear 500ms forwards;
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

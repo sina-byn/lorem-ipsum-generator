@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lorem Ipsum Generator | By Sina Bayandorian</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./css/index.css" />
+    <script defer type="module" src="./js/index.js"></script>
+  </head>
+  <body>
+    <div class="controls container is-widescreen p-3">
+      <header class="level mb-3">
+        <h1 class="title is-4">
+          Lorem Ipsum Generator - By
+          <a target="_blank" href="https://portfolio-sina-byn.vercel.app/">
+            Sina Bayandorian
+          </a>
+        </h1>
+      </header>
+      <div class="is-flex is-flex-wrap-wrap is-justify-content-space-between mb-1">
+        <div class="input-field">
+          <input
+            value="5"
+            type="text"
+            id="count-input"
+            class="input has-text-centered"
+          />
+          <button type="button" class="generate-button button is-link ml-2">
+            Generate
+          </button>
+        </div>
+        <button type="button" class="copy-button button is-link">
+          <span class="icon">
+            <img alt="clipboard icon" src="./assets/clipboard.svg" />
+          </span>
+        </button>
+      </div>
+      <div class="radio-buttons is-flex">
+        <input
+          checked
+          data-unit="paragraph"
+          type="radio"
+          name="unit-button"
+          id="paragraphs-button"
+        />
+        <label for="paragraphs-button" class="is-clickable">Paragraphs</label>
+        <input
+          type="radio"
+          data-unit="word"
+          name="unit-button"
+          id="words-button"
+          class="ml-4"
+        />
+        <label for="words-button" class="is-clickable">Words</label>
+      </div>
+      <div class="lorem-ipsum-display is-flex is-flex-direction-column mt-5"></div>
+    </div>
+    <article class="message is-link">
+      <div class="message-body">Lorem Ipsum Copied to Clipboard</div>
+    </article>
+  </body>
+</html>
