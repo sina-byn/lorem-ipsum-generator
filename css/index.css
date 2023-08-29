@@ -2,8 +2,8 @@ html {
   overflow-y: auto;
 }
 
-#count-input {
-  width: 50px;
+.count-input {
+  width: 70px;
 }
 
 .icon img {

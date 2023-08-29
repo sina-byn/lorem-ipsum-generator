@@ -26,8 +26,7 @@
           <input
             value="5"
             type="text"
-            id="count-input"
-            class="input has-text-centered"
+            class="count-input input has-text-centered"
           />
           <button type="button" class="generate-button button is-link ml-2">
             Generate
@@ -47,7 +46,7 @@
           name="unit-button"
           id="paragraphs-button"
         />
-        <label for="paragraphs-button" class="is-clickable">Paragraphs</label>
+        <label for="paragraphs-button" class="is-clickable ml-1">Paragraphs</label>
         <input
           type="radio"
           data-unit="word"
@@ -55,7 +54,15 @@
           id="words-button"
           class="ml-4"
         />
-        <label for="words-button" class="is-clickable">Words</label>
+        <label for="words-button" class="is-clickable ml-1">Words</label>
+        <input
+          type="radio"
+          data-unit="byte"
+          name="unit-button"
+          id="bytes-button"
+          class="ml-4"
+        />
+        <label for="bytes-button" class="is-clickable ml-1">Bytes</label>
       </div>
       <div class="lorem-ipsum-display is-flex is-flex-direction-column mt-5"></div>
     </div>

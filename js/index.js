@@ -1,8 +1,8 @@
-import { tokens, paragraphs } from './lorem-ipsum.js';
+import { lorem_ipsum_template, words, paragraphs } from './lorem-ipsum.js';
 
 (() => {
   const display = document.querySelector('.lorem-ipsum-display');
-  const countInput = document.getElementById('count-input');
+  const countInput = document.querySelector('.count-input');
   const unitButtons = Array.from(document.querySelectorAll('[name="unit-button"'));
   const generateButton = document.querySelector('.generate-button');
   const copyButton = document.querySelector('.copy-button');
@@ -30,16 +30,16 @@ import { tokens, paragraphs } from './lorem-ipsum.js';
 
   const generateWords = wordsCount => {
     const paragraph = document.createElement('p');
-    let currTokenIdx = 0;
+    let currWordIdx = 0;
     lorem_ipsum = '';
 
     for (let i = 0; i < wordsCount; i++) {
-      const isLastToken = i === wordsCount - 1;
-      lorem_ipsum += tokens[currTokenIdx];
-      if (!isLastToken) lorem_ipsum += ' ';
-      currTokenIdx++;
+      const isLastWord = i === wordsCount - 1;
+      lorem_ipsum += words[currWordIdx];
+      if (!isLastWord) lorem_ipsum += ' ';
+      currWordIdx++;
 
-      if (currTokenIdx === tokens.length) currTokenIdx = 0;
+      if (currWordIdx === words.length) currWordIdx = 0;
     }
 
     if (!lorem_ipsum.endsWith('.')) lorem_ipsum += '.';
@@ -47,6 +47,26 @@ import { tokens, paragraphs } from './lorem-ipsum.js';
     paragraph.innerText = lorem_ipsum;
     display.appendChild(paragraph);
   };
+
+  const generateBytes = bytesCount => {
+    const paragraph = document.createElement('p');
+    let currCharIdx = 0;
+    lorem_ipsum = '';
+
+    for (let i = 0; i < bytesCount; i++) {
+      lorem_ipsum += lorem_ipsum_template[currCharIdx];
+      currCharIdx++;
+
+      if (currCharIdx === lorem_ipsum_template.length) currCharIdx = 0;
+    }
+
+    if (lorem_ipsum.endsWith(' ')) lorem_ipsum = lorem_ipsum.slice(0, -1) + '.';
+
+    paragraph.innerText = lorem_ipsum;
+    display.appendChild(paragraph);
+  };
+
+  const generateSentences = [];
 
   const generateLoremIpsum = () => {
     const count = +countInput.value;
@@ -56,6 +76,8 @@ import { tokens, paragraphs } from './lorem-ipsum.js';
     display.innerHTML = '';
 
     switch (unit) {
+      case 'byte':
+        return generateBytes(count);
       case 'word':
         return generateWords(count);
       case 'paragraph':
