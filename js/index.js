@@ -66,8 +66,6 @@ import { lorem_ipsum_template, words, paragraphs } from './lorem-ipsum.js';
     display.appendChild(paragraph);
   };
 
-  const generateSentences = [];
-
   const generateLoremIpsum = () => {
     const count = +countInput.value;
     const unit = getUnit();
@@ -114,4 +112,6 @@ import { lorem_ipsum_template, words, paragraphs } from './lorem-ipsum.js';
   };
 
   generateButton.onclick = generateLoremIpsum;
+
+  document.addEventListener('DOMContentLoaded', generateLoremIpsum);
 })();
